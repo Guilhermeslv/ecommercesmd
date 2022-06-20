@@ -33,4 +33,5 @@ Route::get('/admin', function () {
 Route::get('/produto/{id}', [\App\Http\Controllers\ProdutoController::class, 'getOne'])->name('produto.getOne');
 Route::resource('/produto', \App\Http\Controllers\ProdutoController::class);
 
+Route::get('/categoria/{id}', [\App\Http\Controllers\CategoriaController::class, 'getOne'])->name('categoria.getOne');
 Route::resource('/categoria', \App\Http\Controllers\CategoriaController::class);

@@ -58,12 +58,14 @@
                                 <tr>
                                     <td>{{$categoria->descricao}}</td>
                                     <td class="text-end">
-                                        <a href="" role="button" class="btn btn-warning">Editar</a>
-                                        <form action="{{route('categoria.destroy', $categoria->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button role="button" type="submit" class="btn btn-danger">Apagar</button>
-                                        </form>
+                                        <div class="d-flex flex-row justify-content-end gap-2">
+                                            <a href="{{route('categoria.getOne', $categoria->id)}}" role="button" class="btn btn-warning">Editar</a>
+                                            <form action="{{route('categoria.destroy', $categoria->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button role="button" type="submit" class="btn btn-danger">Apagar</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

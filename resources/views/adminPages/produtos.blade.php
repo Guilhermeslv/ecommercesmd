@@ -75,13 +75,15 @@
                                     <td>R$ {{$produto->preco}}</td>
                                     <td>{{$produto->quantidade}}</td>
                                     <td class="text-end">
-                                        <a href="{{route('produto.getOne', $produto->id)}}" role="button" class="btn btn-warning">Editar</a>
+                                        <div class="d-flex flex-row justify-content-end gap-2">
+                                            <a href="{{route('produto.getOne', $produto->id)}}" role="button" class="btn btn-warning">Editar</a>
 
-                                        <form action="{{route('produto.destroy', $produto->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button role="button" type="submit" class="btn btn-danger">Apagar</button>
-                                        </form>
+                                            <form action="{{route('produto.destroy', $produto->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button role="button" type="submit" class="btn btn-danger">Apagar</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

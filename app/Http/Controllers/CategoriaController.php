@@ -17,4 +17,10 @@ class CategoriaController extends BaseController
     {
         return view('adminPages.categorias', ['categorias' => $this->entity->all()]);
     }
+
+    public function getOne(int $id)
+    {
+        $categoria = $this->entity->findOrFail($id);
+        return view('adminPages.updateCategoria', ['categoria' => $categoria]);
+    }
 }
