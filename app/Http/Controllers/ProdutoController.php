@@ -36,12 +36,19 @@ class ProdutoController extends BaseController
     {
         $data = $request->all();
 
-        $file = Storage::disk('public')->put('produtos/fotos', $data['foto'], 'public');
+        if($request->hasFile('foto')){
+            $file = Storage::disk('public')->put('produtos/fotos', $data['foto'], 'public');
 
-        $data['foto'] = $file;
-
+            $data['foto'] = $file;
+        }
         $this->entity->findOrFail($id)->update($data);
         return $this->index();
 
+    }
+
+    public function getOne(int $id)
+    {
+        $produto = $this->entity->findOrFail($id);
+        return view('adminPages.updateProduto', ['produto' => $produto]);
     }
 }

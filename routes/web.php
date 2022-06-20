@@ -29,6 +29,8 @@ Route::get('/admin', function () {
     return view('adminPages.index');
 })->name('adminPages.index');
 
+
+Route::get('/produto/{id}', [\App\Http\Controllers\ProdutoController::class, 'getOne'])->name('produto.getOne');
 Route::resource('/produto', \App\Http\Controllers\ProdutoController::class);
 
 Route::resource('/categoria', \App\Http\Controllers\CategoriaController::class);

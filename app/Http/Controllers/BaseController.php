@@ -26,7 +26,7 @@ abstract class BaseController implements ControllerInterface
         return $this->entity->all();
     }
 
-    public function getOne(int $id): Model
+    public function getOne(int $id)
     {
         return $this->entity->findOrFail($id);
     }
