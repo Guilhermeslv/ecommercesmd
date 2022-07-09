@@ -3,8 +3,12 @@
         <a class="navbar-brand" href="{{route('home')}}">SMD Store</a>
         @auth()
             <div class="d-flex flex-row gap-2">
+
                 @if(auth()->user()->admin)
                     <a role="button" href="{{route('adminPages.index')}}" class="btn btn-success">Admin</a>
+                @else
+                    <a role="button" href="{{route('cart.all.finished')}}" class="btn btn-success">Minhas compras</a>
+                    <a role="button" href="{{route('cart')}}" class="btn btn-success">Meu carrinho</a>
                 @endif
                 <form action="{{route('logout')}}" method="post">
                     @csrf

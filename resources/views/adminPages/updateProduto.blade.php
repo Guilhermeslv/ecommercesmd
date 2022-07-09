@@ -23,7 +23,7 @@
                     <input type="text" hidden name="name" value="{{$produto->id}}"/>
                 <h5>Nome do produto:</h5>
                     <input type="text" name="descricao" class="form-control my-2" value="{{$produto->descricao}}"/>
-                <h5>Quantidade: </h5>
+                <h5>Preço: </h5>
                     <input type="number" name="preco" class="form-control my-2" value="{{$produto->preco}}"/>
                 <h5>Quantidade: </h5>
                     <input type="number" name="quantidade" class="form-control my-2" value="{{$produto->quantidade}}"/>

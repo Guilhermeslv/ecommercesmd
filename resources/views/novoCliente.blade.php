@@ -27,7 +27,7 @@
                     <div class="form-group mb-3">
                         <input type="password" name="password" class="form-control" placeholder="Senha">
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Login"/>
+                    <input class="btn btn-primary" type="submit" value="Cadastrar"/>
                 </form>
             </div>
         </div>

@@ -17,26 +17,35 @@
 
 
                         @foreach($produtos as $produto)
+                            <form action="{{route('cart.add')}}" method="post">
+                                @csrf
+                                <input type="text" name="quantidade" hidden value="1">
+                                <input type="text" name="produto_id" hidden value="{{$produto->id}}">
+
                             <div class="col">
                                 <div class="card shadow-sm">
-                                <img
-                                    src="{{asset('storage/'.$produto->foto)}}"
-                                    height="200"
-                                />
-                                <div class="card-body">
-                                    <h5 class="card-text">{{$produto->descricao}}</h5>
-                                    <h6 class="text-primary">R$ {{$produto->preco}}</h6>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">
-                                                <a href="" style="all: unset;">Comprar</a>
-                                            </button>
+                                    <img
+                                        src="{{asset('storage/'.$produto->foto)}}"
+                                        height="200"
+                                    />
+                                    <div class="card-body">
+                                        <h5 class="card-text">{{$produto->descricao}}</h5>
+                                        <h6 class="text-primary">R$ {{$produto->preco}}</h6>
+                                        <div class="d-flex justify-content-end align-items-center">
+                                            <div class="btn-group">
+                                                    @auth
+                                                        <button type="submit" class="btn btn-sm btn-outline-secondary">Adicionar ao carrinho</button>
+                                                    @else
+                                                        <a href="{{route('login.view')}}" class="btn btn-sm btn-outline-secondary">Adicionar ao carrinho</a>
+                                                    @endauth
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                        </form>
                         @endforeach
 
 

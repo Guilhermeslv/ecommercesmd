@@ -17,7 +17,7 @@
                         <input type="text" name="email" class="form-control" placeholder="Usuário">
                     </div>
                     <div class="form-group mb-3">
-                        <input type="text" name="password" class="form-control" placeholder="Senha">
+                        <input type="password" name="password" class="form-control" placeholder="Senha">
                     </div>
                     <input class="btn btn-primary" type="submit" value="Login"/>
                 </form>

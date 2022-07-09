@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,16 @@ Route::get('/register', function () {
 Route::get('/admin', function () {
     return view('adminPages.index');
 })->name('adminPages.index');
+
+Route::prefix('carrinho')->group(function(){
+    Route::get('/', [CarrinhoController::class, 'index'])->name('cart');
+    Route::get('/compras', [CarrinhoController::class, 'showFinishedCarts'])->name('cart.all.finished');
+    Route::post('/novo', [CarrinhoController::class, 'addToCart'])->name('cart.add');
+    Route::post('/atualizar/{item}', [CarrinhoController::class, 'updateCartItem'])->name('cart.update');
+    Route::delete('/remover/{item}', [CarrinhoController::class, 'removeToCart'])->name('cart.remove');
+    Route::put('/finalizar', [CarrinhoController::class, 'finishCart'])->name('cart.finish');
+});
+
 
 
 Route::get('/produto/{id}', [\App\Http\Controllers\ProdutoController::class, 'getOne'])->name('produto.getOne');
